@@ -4,7 +4,6 @@ const submitInput = document.getElementById('submit');
 //The following is structured with this blog post in mind:
 // https://medium.com/statuscode/introducing-webpacker-7136d66cddfb
 
-
 const upload = {
   initialize() {
     submitInput.addEventListener("click", function(e) {
