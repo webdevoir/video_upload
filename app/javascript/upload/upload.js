@@ -1,7 +1,6 @@
 var tus = require("tus-js-client");
 
 const submitInput = document.getElementById('submit');
-
 //The following is structured with this blog post in mind:
 // https://medium.com/statuscode/introducing-webpacker-7136d66cddfb
 
@@ -10,9 +9,11 @@ const upload = {
   initialize() {
     submitInput.addEventListener("click", function(e) {
         // Get the selected file from the input element
-
+        debugger
         e.preventDefault();
-        var file = e.target.files[0]
+        const fileInput = e.target.previousElementSibling
+                            .firstElementChild;
+        var file = fileInput.files[0];
 
         // Create a new tus upload
         var upload = new tus.Upload(file, {
