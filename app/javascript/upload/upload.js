@@ -9,7 +9,6 @@ const upload = {
   initialize() {
     submitInput.addEventListener("click", function(e) {
         // Get the selected file from the input element
-        debugger
         e.preventDefault();
         const fileInput = e.target.previousElementSibling
                             .firstElementChild;
@@ -17,7 +16,7 @@ const upload = {
 
         // Create a new tus upload
         var upload = new tus.Upload(file, {
-            endpoint: "http://localhost:1080/files/",
+            endpoint: "/files",
             retryDelays: [0, 1000, 3000, 5000],
             metadata: {
                 filename: file.name,
