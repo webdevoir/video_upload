@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#allows for tus-files to be uploaded
 gem "shrine", "~> 2.0"
 gem "tus-server", "~> 2.0"
 gem "aws-sdk-s3", "~> 1.2"
