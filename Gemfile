@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #allows for tus-files to be uploaded
+gem "shrine", "~> 2.0"
 gem "tus-server", "~> 2.0"
 gem "aws-sdk-s3", "~> 1.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
