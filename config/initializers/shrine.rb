@@ -1,7 +1,6 @@
 require "shrine"
 require "shrine/storage/s3"
 
-
 s3_options = {
   bucket:            "8balltv-dev",
   access_key_id:     "AKIAIHAH3WAMGQELTI7Q",
@@ -20,9 +19,4 @@ Shrine.plugin :restore_cached_data # refresh metadata when attaching the cached 
 
 
 #https://github.com/shrinerb/shrine/wiki/Adding-Direct-S3-Uploads
-# Shrine.plugin :presign_endpoint, presign_options: { method: :put }
-# route do |r|
-#   r.on "presign" do
-#     r.run Shrine.presign_endpoint(:cache)
-#   end
-# end
+Shrine.plugin :presign_endpoint, presign_options: { method: :put }

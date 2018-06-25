@@ -1,4 +1,4 @@
-import { Uppy } from 'uppy';
+import Uppy from 'uppy';
 
 const fileInput = document.getElementById('file-input');
 //The following is structured with this blog post in mind:
@@ -6,8 +6,9 @@ const fileInput = document.getElementById('file-input');
 
 const upload = {
   initialize() {
-    fileInput.addEventListener("change", function fileUpload(fileInput) {
-      var imagePreview = document.querySelector('.upload-preview')
+    fileInput.addEventListener("change", function fileUpload(e) {
+      const imagePreview = document.querySelector('.upload-preview')
+      const fileInput = e.currentTarget;
       fileInput.style.display = 'none' // uppy will add its own file input
 
       var uppy = Uppy.Core({
@@ -50,7 +51,7 @@ const upload = {
         var hiddenInput = fileInput.parentNode.querySelector('.upload-hidden')
         hiddenInput.value = uploadedFileData
       })
-
+      
       return uppy
     });
   }
