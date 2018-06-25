@@ -1,20 +1,29 @@
 require "shrine"
 require "shrine/storage/file_system"
-
+require "shrine/storage/s3"
+require "shrine/storage/tus"
 
 s3_options = {
   bucket:            "8balltv-dev",
-  access_key_id:     "AKIAINVXIEWADMD44UBQ",
-  secret_access_key: "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",
+  access_key_id:     "AKIAIHAH3WAMGQELTI7Q",
+  secret_access_key: "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",
   region:            "us-east-1"
 }
 
 Shrine.storages = {
-  cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
-  store: Shrine::Storage::FileSystem.new("public", prefix: "uploads"),       # permanent
+  cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
+  store: Shrine::Storage::S3.new(**s3_options),
 }
 
-Shrine.plugin :activerecord # or :activerecord
+Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays
-Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file
-Shrine.plugin :rack_file # for non-Rails apps
+Shrine.plugin :restore_cached_data # refresh metadata when attaching the cached file
+
+
+#https://github.com/shrinerb/shrine/wiki/Adding-Direct-S3-Uploads
+Shrine.plugin :presign_endpoint, presign_options: { method: :put }
+route do |r|
+  r.on "presign" do
+    r.run Shrine.presign_endpoint(:cache)
+  end
+end
