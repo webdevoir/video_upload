@@ -30,3 +30,4 @@ yarn-debug.log*
 /data
 
 /config/initializers/tus.rb
+/config/initializers/shrine.rb
