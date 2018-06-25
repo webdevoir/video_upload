@@ -8,6 +8,7 @@ end
 gem "shrine", "~> 2.0"
 gem "tus-server", "~> 2.0"
 gem "aws-sdk-s3", "~> 1.2"
+gem 'shrine-tus'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
