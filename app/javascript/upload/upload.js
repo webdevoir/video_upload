@@ -7,9 +7,9 @@ const fileInput = document.getElementById('file-input');
 const upload = {
   initialize() {
     function fileUpload(fileInput) {
-      const imagePreview = document.querySelector('.upload-preview')
-      fileInput.style.display = 'none' // uppy will add its own file input
-      debugger
+      const imagePreview = document.querySelector('.upload-preview');
+      fileInput.style.display = 'none'; // uppy will add its own file input
+
       var uppy = Uppy.Core({
           id: fileInput.id,
         })
@@ -21,7 +21,7 @@ const upload = {
         })
         .use(Uppy.ProgressBar, {
           target: imagePreview.parentNode,
-        })
+        });
 
       uppy.use(Uppy.AwsS3, {
         getUploadParameters: function (file) {
@@ -29,7 +29,7 @@ const upload = {
             credentials: 'same-origin', // send cookies
           }).then(function (response) { return response.json() })
         }
-      })
+      });
 
       uppy.on('upload-success', function (file, data, uploadURL) {
         // show image preview
@@ -44,18 +44,18 @@ const upload = {
             filename:  file.name,
             mime_type: file.type,
           }
-        })
+        });
 
         // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
         var hiddenInput = fileInput.parentNode.querySelector('.upload-hidden')
         hiddenInput.value = uploadedFileData
-      })
+      });
 
       return uppy
     }
 
     document.querySelectorAll('#file-input').forEach(function (fileInput) {
-      fileUpload(fileInput)
+      fileUpload(fileInput);
     });
   }
 }
