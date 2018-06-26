@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root'upload_form#index'
-  get 'upload_form/index'
+  root'video#new'
+  resources :video, only: [:create, :new]
 
-  mount Tus::Server => "/files"
+  mount Shrine.presign_endpoint(:cache) => "/presign"
   #see https://github.com/janko-m/tus-ruby-server for documentation
 end
