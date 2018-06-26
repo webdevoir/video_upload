@@ -4,6 +4,7 @@ const upload = {
   initialize() {
     function fileUpload(fileInput) {
       fileInput.style.display = 'none'; // uppy will add its own file input
+      const imagePreview = document.querySelector(".upload-preview");
 
       var uppy = Uppy.Core({
           id: fileInput.id,
@@ -19,7 +20,7 @@ const upload = {
         });
 
       uppy.use(Uppy.Tus, {
-        endpoint: '/files',
+        endpoint: "/files",
         chunkSize: 5*1024*1024, // required unless tus-ruby-server is running on Goliath
       });
 

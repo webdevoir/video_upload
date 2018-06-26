@@ -5,10 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "aws-sdk-s3", "~> 1.2"
 gem "shrine", "~> 2.9"
+gem "aws-sdk-s3", "~> 1.2"
 gem "tus-server", "~> 2.1"
 gem "shrine-tus", "~> 1.2"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record

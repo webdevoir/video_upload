@@ -4,7 +4,7 @@ class VideoController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    @video.clip = params["clip"]
+    @video.clip = params["video"]["clip"]
     debugger
     if @video.save
       render "new"
