@@ -5,7 +5,8 @@ class VideoController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.clip = params["clip"]
-    if @video.save!
+    debugger
+    if @video.save
       render "new"
     else
       render json: @video.errors.full_messages, status: 422
