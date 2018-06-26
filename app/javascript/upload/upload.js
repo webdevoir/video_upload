@@ -6,11 +6,10 @@ const fileInput = document.getElementById('file-input');
 
 const upload = {
   initialize() {
-    fileInput.addEventListener("change", function fileUpload(e) {
+    function fileUpload(fileInput) {
       const imagePreview = document.querySelector('.upload-preview')
-      const fileInput = e.currentTarget;
       fileInput.style.display = 'none' // uppy will add its own file input
-
+      debugger
       var uppy = Uppy.Core({
           id: fileInput.id,
         })
@@ -51,8 +50,12 @@ const upload = {
         var hiddenInput = fileInput.parentNode.querySelector('.upload-hidden')
         hiddenInput.value = uploadedFileData
       })
-      
+
       return uppy
+    }
+
+    document.querySelectorAll('#file-input').forEach(function (fileInput) {
+      fileUpload(fileInput)
     });
   }
 }
