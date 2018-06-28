@@ -37,7 +37,7 @@ const upload = {
         });
 
         // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
-        var hiddenInput = fileInput.parentNode.querySelector('.upload-hidden');
+        var hiddenInput   = fileInput.parentNode.querySelector('.upload-hidden');
         hiddenInput.value = uploadedFileData;
       })
 
@@ -47,6 +47,11 @@ const upload = {
     document.querySelectorAll("#file-input").forEach( fileInput => {
       fileUpload(fileInput)
     });
+
+    //Move the submit button to the end of the form
+    const submitButton = document.getElementById('submit');
+    const uploadForm   = document.querySelector('.upload-form');
+    uploadForm.append(submitButton);
   }
 }
 
