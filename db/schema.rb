@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626192650) do
+ActiveRecord::Schema.define(version: 20180820203717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20180626192650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "clip_data"
+    t.string "genre"
+    t.boolean "series"
+    t.date "end_airing_date"
+    t.integer "run_time"
+    t.integer "segments"
+    t.text "crew"
+    t.text "additional_info"
   end
 
 end
