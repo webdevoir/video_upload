@@ -1,5 +1,6 @@
 class VideoController < ApplicationController
   def new
+    @video = Video.new
   end
 
   def create
@@ -15,7 +16,10 @@ class VideoController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:title, :uploader_email, :uploader_name)
+    params.require(:video).permit( :title, :uploader_name, :uploader_email,
+                                  :genre, :end_airing_date, :series, :crew,
+                                  :additional_info
+                                 )
   end
 
 end
