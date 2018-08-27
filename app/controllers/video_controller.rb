@@ -6,7 +6,7 @@ class VideoController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.clip = params["video"]["clip"]
-
+    debugger
     if @video.save
       render "new"
     else
@@ -16,7 +16,10 @@ class VideoController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:title, :uploader_email, :uploader_name)
+    params.require(:video).permit( :title, :uploader_name, :uploader_email,
+                                  :genre, :end_airing_date, :series, :crew,
+                                  :additional_info
+                                 )
   end
 
 end
