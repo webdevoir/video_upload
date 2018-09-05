@@ -30,7 +30,6 @@ yarn-debug.log*
 /data
 
 /config/initializers/tus.rb
-/config/initializers/shrine.rb
 /config/initializers/aws_cors.rb
 /app/views/video/new_html.html
 

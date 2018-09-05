@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem "uppy-s3_multipart"
 gem "shrine", "~> 2.9"
 gem "aws-sdk-s3", "~> 1.2"
 gem "tus-server", "~> 2.1"
