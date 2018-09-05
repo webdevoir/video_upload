@@ -1,2 +1,2 @@
-class ClipUploader < TusUploader
+class ClipUploader < Shrine
 end

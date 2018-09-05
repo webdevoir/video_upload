@@ -33,3 +33,8 @@ yarn-debug.log*
 /config/initializers/shrine.rb
 /config/initializers/aws_cors.rb
 /app/views/video/new_html.html
+
+.bashrc
+
+# Ignore application configuration
+/config/application.yml
