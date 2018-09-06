@@ -20,10 +20,9 @@ const upload = {
           target: imagePreview.parentNode,
         });
 
-      debugger
       uppy.use(AwsS3Multipart, {
         limit: 4,
-        serverUrl: 'localhost:5000',
+        serverUrl: "http://localhost:3000/",
       });
 
       uppy.on('upload-success', function (file, data, uploadURL) {
