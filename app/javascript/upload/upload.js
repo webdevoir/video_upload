@@ -20,6 +20,7 @@ const upload = {
         });
 
       uppy.use(Uppy.AwsS3Multipart, {
+        limit: 4,
         serverUrl: ENV["APP-URL"],
       });
 
