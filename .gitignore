@@ -31,5 +31,3 @@ yarn-debug.log*
 
 /config/application.yml
 /config/initializers/tus.rb
-/config/initializers/shrine.rb
-/config/initializers/aws_cors.rb
