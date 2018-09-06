@@ -3,8 +3,9 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "@uppy/aws-s3-multipart": "^0.27.2",
     "tus-js-client": "^1.5.1",
-    "uppy": "^0.25.6"
+    "uppy": "^0.27.3"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

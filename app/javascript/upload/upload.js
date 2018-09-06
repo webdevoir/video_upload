@@ -1,4 +1,5 @@
 import Uppy from 'uppy';
+const AwsS3Multipart = require('@uppy/aws-s3-multipart');
 
 const upload = {
   initialize() {
@@ -6,22 +7,23 @@ const upload = {
       fileInput.style.display = 'none'; // uppy will add its own file input
       const imagePreview = document.querySelector(".upload-preview");
 
-      var uppy = Uppy.Core({
+      var uppy = window.Uppy.Core({
           id: fileInput.id,
         })
-        .use(Uppy.FileInput, {
+        .use(window.Uppy.FileInput, {
           target: fileInput.parentNode,
         })
-        .use(Uppy.Informer, {
+        .use(window.Uppy.Informer, {
           target: fileInput.parentNode,
         })
-        .use(Uppy.ProgressBar, {
+        .use(window.Uppy.ProgressBar, {
           target: imagePreview.parentNode,
         });
 
-      uppy.use(Uppy.AwsS3Multipart, {
+      debugger
+      uppy.use(AwsS3Multipart, {
         limit: 4,
-        serverUrl: ENV["APP-URL"],
+        serverUrl: 'localhost:5000',
       });
 
       uppy.on('upload-success', function (file, data, uploadURL) {
