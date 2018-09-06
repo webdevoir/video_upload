@@ -1,0 +1,72 @@
+<table id="TICKER" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td id="tickerleft"><a href="index.html">←BACK TO TV</a></td>
+      <td id="tickercenter" class="green redshad"> 8 BALL TV</td>
+      <td id="tickerright" class="green">
+        <p id="dater">GET DATE</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table id="HEAD" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td id="headleft"><img src="http://8balltv.club/css/8ball.png" /></td>
+      <td id="headcenter" class="white">Submission Form</td>
+      <td id="headright"><img src="http://8balltv.club/css/remote.png" width="119" height="99" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="DROP"> <input id="file-input" type="file" name="video[file]"></div>
+
+<div id="INPUTS">
+  <form class="upload-form" action="/video" method="post">
+     <table id="forma" width="800" border="0" cellspacing="0" cellpadding="10px">
+        <tbody>
+          <tr>
+            <td class="left"> <label for="title" class="label">Title</label> </td>
+            <td class="right"><input id="title" type="text" name="video[title]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left"><label for="genre" class="label">Genre</label></td>
+            <td class="right"><input id="genre" type="text" name="video[genre]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left"><label for="uploader_name" class="label optional">Uploader Name</label></td>
+            <td class="right"><input id="uploader_name" type="text" name="video[uploader_name]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left"><label for="email" class="label">Email</label></td>
+            <td class="right"><input id="email" type="text" name="video[uploader_email]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left"><label for="end-airing-date" class="label optional">Last Airing Date</label></td>
+            <td class="right"><input id="end-airing-date" type="date" name="video[end_airing_date]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left">
+              <section class="series-container"><label for="series" class="label">Part of a series?</label></section>
+            </td>
+            <td class="right"><input id="series" type="checkbox" name="video[series]" value=""></td>
+          </tr>
+          <tr>
+            <td class="left"><label for="crew" class="label optional">Crew Info</label></td>
+            <td class="right">
+              <textarea id="crew" name="video[crew]"></textarea>
+            </td>
+          </tr>
+          <td class="left"><label for="additional_info" class="label optional ">Additional Info</label></td>
+          <td class="right">
+            <textarea id="additional_info" name="video[additional_info]"> </textarea>
+          </td>
+            </tr>
+        </tbody>
+      </table>
+    <input type="hidden" name="video[clip]" value="<%=@video.cached_clip_data%>" class="upload-hidden">
+  </form>
+  <img class="upload-preview">
+  <input id="submit" type="submit" name="" value="Submit">
+</div>
