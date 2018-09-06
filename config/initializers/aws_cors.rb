@@ -16,3 +16,4 @@ client.put_bucket_cors(
       max_age_seconds: 3000,
     }]
   }
+)
