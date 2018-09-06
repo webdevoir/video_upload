@@ -30,9 +30,9 @@ yarn-debug.log*
 /data
 
 /config/initializers/tus.rb
-/app/views/video/new_html.html
 
-.bashrc
+/app/views/video/new_html.html
 
 # Ignore application configuration
 /config/application.yml
+
