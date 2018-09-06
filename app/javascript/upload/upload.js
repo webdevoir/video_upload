@@ -22,7 +22,7 @@ const upload = {
 
       uppy.use(AwsS3Multipart, {
         limit: 4,
-        serverUrl: "http://localhost:3000/",
+        serverUrl: "https://shrouded-shore-81550.herokuapp.com/",
       });
 
       uppy.on('upload-success', function (file, data, uploadURL) {
