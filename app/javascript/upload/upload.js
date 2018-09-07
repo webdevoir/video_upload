@@ -1,4 +1,5 @@
 import Uppy from 'uppy';
+const AwsS3Multipart = require('@uppy/aws-s3-multipart');
 
 const upload = {
   initialize() {
@@ -6,40 +7,42 @@ const upload = {
       fileInput.style.display = 'none'; // uppy will add its own file input
       const imagePreview = document.querySelector(".upload-preview");
 
-      var uppy = Uppy.Core({
+      var uppy = window.Uppy.Core({
           id: fileInput.id,
         })
-        .use(Uppy.FileInput, {
+        .use(window.Uppy.FileInput, {
           target: fileInput.parentNode,
         })
-        .use(Uppy.Informer, {
+        .use(window.Uppy.Informer, {
           target: fileInput.parentNode,
         })
-        .use(Uppy.ProgressBar, {
+        .use(window.Uppy.ProgressBar, {
           target: imagePreview.parentNode,
         });
 
-      uppy.use(Uppy.Tus, {
-        endpoint: "/files",
-        chunkSize: 5*1024*1024, // required unless tus-ruby-server is running on Goliath
+      uppy.use(AwsS3Multipart, {
+        limit: 4,
+        serverUrl: "https://shrouded-shore-81550.herokuapp.com/",
       });
 
-      uppy.on('upload-success', function (file, data) {
-        // construct uploaded file data from the tus URL
+      uppy.on('upload-success', function (file, data, uploadURL) {
+        // show image preview
+        imagePreview.src = URL.createObjectURL(file.data)
+        // construct uploaded file data in the format that Shrine expects
         var uploadedFileData = JSON.stringify({
-          id: data.url,
-          storage: "cache",
+          id: uploadURL.match(/\/cache\/([^\?]+)/)[1], // extract key without prefix
+          storage: 'cache',
           metadata: {
-            filename:  file.name,
             size:      file.size,
+            filename:  file.name,
             mime_type: file.type,
           }
-        });
+      });
 
-        // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
-        var hiddenInput   = fileInput.parentNode.querySelector('.upload-hidden');
-        hiddenInput.value = uploadedFileData;
-      })
+     // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
+     var hiddenInput = fileInput.parentNode.querySelector('.upload-hidden')
+     hiddenInput.value = uploadedFileData
+   })
 
       return uppy;
     }
