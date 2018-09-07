@@ -1,6 +1,6 @@
 require "aws-sdk-s3"
 
-puts ENV["S3-REGION"]
+
 client = Aws::S3::Client.new(
   access_key_id:     ENV["S3-ACCESS"],
   secret_access_key: ENV["S3-SECRET"],
