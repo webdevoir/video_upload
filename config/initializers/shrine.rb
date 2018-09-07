@@ -1,6 +1,7 @@
 require "shrine"
 require "shrine/storage/s3"
 
+puts ENV["S3-REGION"]
 s3_options = {
   bucket:            ENV["S3-BUCKET"],
   access_key_id:     ENV["S3-ACCESS"],
