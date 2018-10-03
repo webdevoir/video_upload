@@ -9,7 +9,8 @@
     "tus-js-client": "^1.5.1"
   },
   "devDependencies": {
+    "webpack": "^3.0.0",
     "webpack-dev-server": "2.11.3",
-    "webpack": "^3.0.0"
+    "webpack-node-externals": "^1.7.2"
   }
 }
