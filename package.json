@@ -2,13 +2,14 @@
   "name": "video_upload",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "^3.5",
     "@uppy/aws-s3-multipart": "^0.27.2",
     "@uppy/core": "^0.27.1",
     "ajv": "^6.5.3",
     "tus-js-client": "^1.5.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "2.11.3",
+    "webpack": "^3.0.0"
   }
 }
