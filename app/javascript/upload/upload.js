@@ -1,4 +1,4 @@
-import Uppy from 'uppy';
+import Uppy from '@uppy/core';
 const AwsS3Multipart = require('@uppy/aws-s3-multipart');
 
 const upload = {
