@@ -1,8 +1,10 @@
 import Uppy from 'uppy';
+import AwsS3Multipart from '@uppy/aws-s3-multipart';
 
 const upload = {
   initialize() {
     function fileUpload(fileInput) {
+      console.log(window);
       fileInput.style.display = 'none'; // uppy will add its own file input
       const imagePreview = document.querySelector(".upload-preview");
 
@@ -19,7 +21,7 @@ const upload = {
           target: imagePreview.parentNode,
         });
 
-      uppy.use(window.Uppy.AwsS3, {
+      uppy.use(window.Uppy.AwsS3Multipart, {
         limit: 4,
         serverUrl: "http://localhost:3000/",
       });
