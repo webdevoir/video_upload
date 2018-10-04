@@ -1,5 +1,4 @@
-import Uppy from '@uppy/core';
-const AwsS3Multipart = require('@uppy/aws-s3-multipart');
+import Uppy from 'uppy';
 
 const upload = {
   initialize() {
@@ -20,7 +19,7 @@ const upload = {
           target: imagePreview.parentNode,
         });
 
-      uppy.use(AwsS3Multipart, {
+      uppy.use(window.Uppy.AwsS3, {
         limit: 4,
         serverUrl: "http://localhost:3000/",
       });
