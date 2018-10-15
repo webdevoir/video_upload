@@ -22,7 +22,6 @@ const upload = {
         });
 
       uppy.use(window.Uppy.AwsS3Multipart, {
-        limit: 4,
         serverUrl: "http://localhost:3000/",
       });
 

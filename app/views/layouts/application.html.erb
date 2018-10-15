@@ -11,19 +11,20 @@
   <body>
     <%= yield %>
     <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-   <script src="https://unpkg.com/tus-js-client@1.4.5/dist/tus.js"></script>
-   <script src="https://transloadit.edgly.net/releases/uppy/v0.27.5/dist/uppy.min.js"></script>
+    <script src="https://unpkg.com/tus-js-client@1.4.5/dist/tus.js"></script>
 
-   <link href="https://transloadit.edgly.net/releases/uppy/v0.27.5/dist/uppy.min.css" rel="stylesheet" />
+    <script src="https://transloadit.edgly.net/releases/uppy/v0.27.5/dist/uppy.min.js"></script>
+    <link href="https://transloadit.edgly.net/releases/uppy/v0.27.5/dist/uppy.min.css" rel="stylesheet" />
  </body>
  <script>
-   function fileUpload(fileInput) {
-     console.log(window);
+  function fileUpload(fileInput) {
      fileInput.style.display = 'none'; // uppy will add its own file input
      const imagePreview = document.querySelector(".upload-preview");
 
      var uppy = window.Uppy.Core({
          id: fileInput.id,
+         autoproceed: true,
+         debug: true
        })
        .use(window.Uppy.FileInput, {
          target: fileInput.parentNode,
@@ -36,8 +37,7 @@
        });
 
      uppy.use(window.Uppy.AwsS3Multipart, {
-       limit: 4,
-       serverUrl: "http://localhost:3000/",
+       serverUrl: 'http://localhost:3000',
      });
 
      uppy.on('upload-success', function (file, data, uploadURL) {
