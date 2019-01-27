@@ -16,7 +16,7 @@ class VideoController < ApplicationController
   private
   def video_params
     params.require(:video).permit( :title, :uploader_name, :uploader_email,
-                                  :genre, :end_airing_date, :series, :crew,
+                                   :genre, :end_airing_date, :series, :crew,
                                   :additional_info
                                  )
   end
